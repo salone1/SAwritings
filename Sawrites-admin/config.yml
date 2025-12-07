@@ -1,32 +1,26 @@
-[build]
-publish = "."
-command = ""
+backend:
+  name: git-gateway
+  branch: main
 
-# Route admin correctly
-[[redirects]]
-from = "/sawrites-admin/*"
-to = "/sawrites-admin/index.html"
-status = 200
+site_url: "https://sawritings.netlify.app"
 
-# SPA fallback (homepage)
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
 
-# Security headers (global)
-[[headers]]
-for = "/*"
-[headers.values]
-X-Frame-Options = "DENY"
-X-Content-Type-Options = "nosniff"
-Referrer-Policy = "same-origin"
-Permissions-Policy = "camera=(), microphone=(), geolocation=(), display-capture=()"
-# Allow CMS + Identity connections and fix EvalError
-Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval' https://unpkg.com https://identity.netlify.com; connect-src 'self' https://identity.netlify.com https://api.netlify.com; frame-ancestors 'none'"
-
-# Don’t cache content page
-[[headers]]
-for = "/content.html"
-[headers.values]
-Cache-Control = "no-store"
+collections:
+  - name: "writings"
+    label: "Writings"
+    files:
+      - file: "data/writings.json"
+        label: "All Writings"
+        name: "writings"
+        fields:
+          - { label: "ID (slug)", name: "id", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Type", name: "type", widget: "select", options: ["books", "poem", "quote", "article"] }
+          - { label: "Language", name: "language", widget: "select", options: ["urdu", "english"] }
+          - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+          - { label: "Content", name: "content", widget: "text" }
+          - { label: "Author", name: "author", widget: "string", required: false }
+          - { label: "Tags", name: "tags", widget: "list", required: false }
+          - { label: "Created At", name: "createdAt", widget: "datetime" }
