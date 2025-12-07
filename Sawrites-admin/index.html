@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="robots" content="noindex" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sawritings Admin</title>
+    <title>SAwritings Admin</title>
   </head>
   <body>
     <div id="nc-root"></div>
@@ -17,13 +17,13 @@
         window.netlifyIdentity.on("init", user => {
           if (!user) {
             window.netlifyIdentity.on("login", () => {
-              document.location.href = "/sawrites-admin/";
+              document.location.href = "/Sawrites-admin/";
             });
             window.netlifyIdentity.on("signup", () => {
-              document.location.href = "/sawrites-admin/";
+              document.location.href = "/Sawrites-admin/";
             });
             window.netlifyIdentity.on("passwordRecovery", () => {
-              document.location.href = "/sawrites-admin/";
+              document.location.href = "/Sawrites-admin/";
             });
           }
         });
