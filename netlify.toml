@@ -1,0 +1,28 @@
+# File: netlify.toml
+
+[build]
+publish = "."
+command = ""
+
+# Clean URL for admin route
+[[redirects]]
+from = "/sawrites-admin"
+to = "/sawrites-admin/"
+status = 301
+force = true
+
+# Security headers (global)
+[[headers]]
+for = "/*"
+[headers.values]
+X-Frame-Options = "DENY"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "same-origin"
+Permissions-Policy = "camera=(), microphone=(), geolocation=(), display-capture=()"
+Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' https://unpkg.com; connect-src 'self'; frame-ancestors 'none'"
+
+# Don’t cache content page
+[[headers]]
+for = "/content.html"
+[headers.values]
+Cache-Control = "no-store"
