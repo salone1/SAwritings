@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: salonel/SAwritings
+  branch: main
+
+site_url: "https://sawritings.netlify.app"
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "writings"
+    label: "Writings"
+    files:
+      - file: "data/writings.json"
+        label: "All Writings"
+        name: "writings"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Content", name: "content", widget: "text" }
+          - { label: "Type", name: "type", widget: "select", options: ["books", "poem", "quote", "article"] }
+          - { label: "Language", name: "language", widget: "select", options: ["urdu", "english"] }
+          - { label: "Author", name: "author", widget: "string", required: false }
+          - { label: "Tags", name: "tags", widget: "list", required: false }
+          - { label: "Created At", name: "createdAt", widget: "datetime" }
