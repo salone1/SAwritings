@@ -6,8 +6,8 @@ command = ""
 
 # Clean URL for admin route
 [[redirects]]
-from = "/sawrites-admin"
-to = "/sawrites-admin/"
+from = "/Sawrites-admin"
+to = "/Sawrites-admin/"
 status = 301
 force = true
 
