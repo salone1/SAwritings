@@ -1,15 +1,18 @@
-# File: netlify.toml
-
 [build]
 publish = "."
 command = ""
 
-# Clean URL for admin route
+# Route admin correctly
 [[redirects]]
-from = "/Sawrites-admin"
-to = "/Sawrites-admin/"
-status = 301
-force = true
+from = "/sawrites-admin/*"
+to = "/sawrites-admin/index.html"
+status = 200
+
+# SPA fallback (homepage)
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
 
 # Security headers (global)
 [[headers]]
@@ -19,7 +22,8 @@ X-Frame-Options = "DENY"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "same-origin"
 Permissions-Policy = "camera=(), microphone=(), geolocation=(), display-capture=()"
-Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' https://unpkg.com; connect-src 'self'; frame-ancestors 'none'"
+# Allow CMS + Identity connections
+Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' https://unpkg.com https://identity.netlify.com; connect-src 'self' https://identity.netlify.com https://api.netlify.com; frame-ancestors 'none'"
 
 # Don’t cache content page
 [[headers]]
