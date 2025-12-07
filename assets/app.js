@@ -32,6 +32,7 @@ async function injectChrome() {
           <a href="/" role="menuitem">Home</a>
           <a href="/about.html" role="menuitem">About</a>
           <a href="/contact.html" role="menuitem">Contact</a>
+          <a href="/Sawrites-admin/index.html" role="menuitem">admin</a>
         </div>
         <div class="filters">
           <select id="filter-type" class="select" aria-label="Filter by type">
