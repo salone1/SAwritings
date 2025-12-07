@@ -1,0 +1,25 @@
+// File: data/writings.json
+[
+  {
+    "id": "gulshan-e-adab-01",
+    "title": "گلشنِ ادب",
+    "type": "poem",
+    "language": "urdu",
+    "excerpt": "روشنیوں میں لپٹا ہوا ایک خیال...",
+    "content": "یہاں مکمل نظم جائے گی...",
+    "author": "نامعلوم",
+    "tags": ["romantic", "classical"],
+    "createdAt": "2025-12-01"
+  },
+  {
+    "id": "quiet-morning-quote",
+    "title": "Quiet Morning",
+    "type": "quote",
+    "language": "english",
+    "excerpt": "A quiet morning is a brave beginning.",
+    "content": "A quiet morning is a brave beginning.",
+    "author": "Unknown",
+    "tags": ["mindful"],
+    "createdAt": "2025-12-03"
+  }
+]
