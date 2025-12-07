@@ -4,8 +4,14 @@ command = ""
 
 # Route admin correctly
 [[redirects]]
-from = "/sawrites-admin/*"
-to = "/sawrites-admin/index.html"
+from = "/Sawrites-admin/*"
+to = "/Sawrites-admin/index.html"
+status = 200
+
+# Redirect Identity callbacks (invite/reset) to admin
+[[redirects]]
+from = "/.netlify/identity/*"
+to = "/Sawrites-admin/"
 status = 200
 
 # SPA fallback (homepage)
